@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="ru" class="js">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Правила Meta для креативов — Caviar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,400;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --color-brand-accent:#a89974;
+  --color-brand-accent-hover:#968758;
+  --color-gold-on-light:#85764f;
+  --color-section-title:#b89968;
+  --color-surface-light:#f7f7f7;
+  --color-surface-dark:#393838;
+  --color-ink-deep:#0d1117;
+  --color-brand-primary:#06224d;
+  --line-gold:rgba(168,153,116,.35);
+  --spacing-section-gap:64px;
+  --spacing-column-gap:40px;
+  --ease-out-expo:cubic-bezier(.16,1,.3,1);
+  --rail:280px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Nunito Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-size:17px;line-height:24px;letter-spacing:.17px;
+  color:var(--color-surface-dark);background:var(--color-surface-light);
+}
+
+/* progress */
+.progress{position:fixed;top:0;left:0;height:3px;width:0;
+  background:var(--color-brand-accent);z-index:120;transition:width .1s linear}
+
+/* rail */
+.rail{position:fixed;left:0;top:0;bottom:0;width:var(--rail);
+  background:var(--color-ink-deep);padding:40px 0 28px;z-index:100;
+  display:flex;flex-direction:column;overflow-y:auto}
+.rail__brand{padding:0 32px 26px;border-bottom:1px solid rgba(255,255,255,.08)}
+.rail__logo{font-size:14px;font-weight:700;letter-spacing:.42em;
+  text-transform:uppercase;color:var(--color-brand-accent)}
+.rail__ttl{color:var(--color-surface-light);font-size:15px;font-weight:700;
+  margin-top:10px;line-height:20px}
+.rail__nav{padding:22px 0;flex:1}
+.rail__link{display:flex;gap:13px;align-items:baseline;padding:11px 32px;
+  color:rgba(247,247,247,.5);text-decoration:none;font-size:14.5px;
+  border-left:2px solid transparent;transition:.2s var(--ease-out-expo)}
+.rail__link:hover{color:var(--color-surface-light);background:rgba(255,255,255,.03)}
+.rail__link.active{color:var(--color-brand-accent);border-left-color:var(--color-brand-accent);
+  background:rgba(168,153,116,.07)}
+.rail__num{font-size:11px;font-weight:700;letter-spacing:.1em;opacity:.65;min-width:18px}
+.rail__foot{padding:20px 32px 0;border-top:1px solid rgba(255,255,255,.08);
+  color:rgba(247,247,247,.32);font-size:11.5px;line-height:17px}
+
+/* chips (mobile) */
+.chips{display:none;position:sticky;top:0;z-index:100;background:var(--color-ink-deep);
+  padding:13px 16px;overflow-x:auto;white-space:nowrap;
+  border-bottom:1px solid rgba(255,255,255,.08)}
+.chips a{display:inline-block;padding:7px 15px;margin-right:8px;border-radius:50px;
+  border:1px solid var(--line-gold);color:rgba(247,247,247,.62);text-decoration:none;
+  font-size:13px;letter-spacing:1.3px;text-transform:uppercase}
+.chips a.active{background:var(--color-brand-accent);color:var(--color-ink-deep);
+  border-color:var(--color-brand-accent);font-weight:700}
+
+main{margin-left:var(--rail)}
+section{padding:var(--spacing-section-gap) var(--spacing-column-gap)}
+.inner{max-width:900px;margin:0 auto}
+.s-ink{background:var(--color-ink-deep);color:var(--color-surface-light)}
+.s-blue{background:var(--color-brand-primary);color:var(--color-surface-light)}
+.s-white{background:#fff}
+.s-light{background:var(--color-surface-light)}
+
+/* hero */
+.hero{min-height:560px;display:flex;align-items:center}
+.micro{font-size:14px;font-weight:700;line-height:14px;text-transform:uppercase;
+  letter-spacing:.06em;color:var(--color-brand-accent);margin-bottom:14px}
+.s-white .micro,.s-light .micro{color:var(--color-gold-on-light)}
+.hero h1{font-size:64px;font-weight:800;line-height:1.02;letter-spacing:-.01em;
+  text-transform:uppercase;margin-bottom:22px}
+.lead{font-size:19px;line-height:29px;max-width:750px;opacity:.88}
+.pills{display:flex;gap:10px;flex-wrap:wrap;margin-top:32px}
+.pill{font-size:13px;line-height:24px;letter-spacing:1.3px;text-transform:uppercase;
+  border:1px solid var(--line-gold);border-radius:50px;padding:5px 18px;
+  color:var(--color-brand-accent)}
+
+h2{font-size:52px;font-weight:700;line-height:52px;letter-spacing:-1.04px;margin-bottom:26px}
+h3{font-size:26px;font-weight:700;line-height:30px;letter-spacing:-.26px;margin:38px 0 14px}
+h4{font-size:19px;font-weight:700;margin:26px 0 10px}
+p{max-width:750px;margin-bottom:16px}
+strong{font-weight:700}
+
+/* stat */
+.stat{font-size:150px;font-weight:800;line-height:1;letter-spacing:-6px;
+  color:var(--color-brand-accent);margin:10px 0}
+.stat-lbl{font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;
+  color:var(--color-brand-accent);margin-bottom:34px}
+
+/* table */
+table{width:100%;border-collapse:collapse;margin:22px 0;font-size:15.5px}
+th{text-align:left;font-size:11.5px;font-weight:700;letter-spacing:.12em;
+  text-transform:uppercase;padding:0 14px 11px 0;border-bottom:1px solid var(--line-gold);
+  color:var(--color-gold-on-light)}
+.s-ink th,.s-blue th{color:var(--color-brand-accent)}
+td{padding:13px 14px 13px 0;border-bottom:1px solid var(--line-gold);vertical-align:top}
+td:first-child{font-weight:700}
+.s-ink td,.s-blue td{border-color:rgba(168,153,116,.22)}
+
+/* callout */
+.note{border-left:3px solid var(--color-brand-accent);padding:18px 24px;
+  margin:26px 0;background:rgba(168,153,116,.07);max-width:750px}
+.note strong{color:var(--color-gold-on-light)}
+.s-ink .note strong,.s-blue .note strong{color:var(--color-brand-accent)}
+.note--warn{border-left-color:#c23434;background:rgba(194,52,52,.06)}
+.note--warn strong{color:#c23434}
+
+/* zone diagram */
+.zone{display:flex;gap:44px;align-items:flex-start;flex-wrap:wrap;margin:32px 0}
+.canvas{position:relative;width:216px;height:384px;flex-shrink:0;
+  border:1px solid var(--line-gold);background:rgba(168,153,116,.05)}
+.canvas--feed{height:270px}
+.canvas__bad{position:absolute;left:0;right:0;background:rgba(194,52,52,.16);
+  border-bottom:1px dashed rgba(194,52,52,.5)}
+.canvas__bad--bot{bottom:0;border-bottom:none;border-top:1px dashed rgba(194,52,52,.5)}
+.canvas__safe{position:absolute;border:1px solid var(--color-brand-accent);
+  display:flex;align-items:center;justify-content:center;text-align:center;
+  font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--color-brand-accent);background:rgba(168,153,116,.1)}
+.canvas__tag{position:absolute;font-size:9.5px;font-weight:700;letter-spacing:.08em;
+  text-transform:uppercase;color:#c23434;width:100%;text-align:center}
+.zone__info{flex:1;min-width:260px}
+
+/* steps */
+ol.steps{counter-reset:s;list-style:none;max-width:750px;margin:22px 0}
+ol.steps li{counter-increment:s;position:relative;padding:0 0 20px 52px;margin-bottom:4px}
+ol.steps li::before{content:counter(s,decimal-leading-zero);position:absolute;left:0;top:-2px;
+  font-size:15px;font-weight:800;color:var(--color-brand-accent);
+  border:1px solid var(--line-gold);border-radius:50%;width:34px;height:34px;
+  display:flex;align-items:center;justify-content:center}
+
+/* checklist */
+.check{max-width:750px;margin:20px 0}
+.check__grp{font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--color-gold-on-light);margin:26px 0 12px}
+.s-ink .check__grp,.s-blue .check__grp{color:var(--color-brand-accent)}
+.check label{display:flex;gap:13px;align-items:flex-start;padding:9px 0;cursor:pointer;
+  border-bottom:1px solid rgba(168,153,116,.18);font-size:16px}
+.check input{appearance:none;width:19px;height:19px;flex-shrink:0;margin-top:2px;
+  border:1px solid var(--color-brand-accent);border-radius:4px;cursor:pointer;
+  transition:.18s var(--ease-out-expo);position:relative}
+.check input:checked{background:var(--color-brand-accent)}
+.check input:checked::after{content:"✓";position:absolute;inset:0;display:flex;
+  align-items:center;justify-content:center;color:#fff;font-size:13px;font-weight:700}
+.check input:checked + span{opacity:.42;text-decoration:line-through}
+.check__bar{display:flex;align-items:center;gap:16px;margin-top:22px;
+  padding:16px 20px;border:1px solid var(--line-gold);border-radius:8px}
+.check__bar b{font-size:26px;font-weight:800;color:var(--color-gold-on-light);
+  min-width:78px}
+.check__reset{margin-left:auto;background:none;border:1px solid var(--line-gold);
+  color:var(--color-gold-on-light);font-family:inherit;font-size:12px;font-weight:700;
+  letter-spacing:.7px;text-transform:uppercase;padding:9px 18px;border-radius:5px;cursor:pointer}
+.check__reset:hover{background:var(--color-brand-accent);color:#fff;border-color:var(--color-brand-accent)}
+
+/* yes/no */
+.yn{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:26px 0;max-width:750px}
+.yn__card{padding:20px 22px;border-radius:8px;border:1px solid}
+.yn__ok{border-color:rgba(95,155,99,.45);background:rgba(95,155,99,.07)}
+.yn__no{border-color:rgba(194,52,52,.4);background:rgba(194,52,52,.05)}
+.yn__lbl{font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  margin-bottom:10px}
+.yn__ok .yn__lbl{color:#4e8a52}
+.yn__no .yn__lbl{color:#c23434}
+.yn__card p{margin:0;font-size:16px}
+
+/* faq */
+details{border-bottom:1px solid var(--line-gold);max-width:750px}
+summary{cursor:pointer;padding:19px 0;font-size:18px;font-weight:700;
+  list-style:none;display:flex;justify-content:space-between;gap:20px;align-items:center}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--color-brand-accent);font-size:23px;font-weight:400;
+  transition:transform .25s var(--ease-out-expo)}
+details[open] summary::after{transform:rotate(45deg)}
+details p{padding-bottom:20px;opacity:.85}
+
+/* list */
+ul.dash{list-style:none;max-width:750px;margin:16px 0}
+ul.dash li{padding:7px 0 7px 22px;position:relative}
+ul.dash li::before{content:"—";position:absolute;left:0;color:var(--color-brand-accent)}
+
+.up{position:fixed;right:28px;bottom:28px;width:46px;height:46px;border-radius:50%;
+  background:var(--color-brand-accent);color:#fff;border:none;cursor:pointer;
+  font-size:19px;opacity:0;pointer-events:none;transition:.25s var(--ease-out-expo);z-index:110}
+.up.show{opacity:1;pointer-events:auto}
+.up:hover{background:var(--color-brand-accent-hover)}
+
+.src{font-style:italic;opacity:.6;font-size:14.5px;margin-top:34px;max-width:750px}
+
+.reveal{opacity:0;transform:translateY(22px);
+  transition:opacity .7s var(--ease-out-expo),transform .7s var(--ease-out-expo)}
+.reveal.in{opacity:1;transform:none}
+html:not(.js) .reveal{opacity:1;transform:none}
+
+@media(max-width:1200px){
+  .rail{display:none}
+  .chips{display:block}
+  main{margin-left:0}
+}
+@media(max-width:1100px){
+  h2{font-size:40px;line-height:1.1}
+  .hero h1{font-size:46px}
+  .stat{font-size:110px;letter-spacing:-4px}
+}
+@media(max-width:640px){
+  section{padding:44px 20px}
+  h2{font-size:32px}
+  .hero h1{font-size:34px}
+  .hero{min-height:auto}
+  .stat{font-size:96px}
+  .yn{grid-template-columns:1fr}
+  .zone{gap:26px}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .reveal{opacity:1;transform:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<nav class="rail">
+  <div class="rail__brand">
+    <div class="rail__logo">Caviar</div>
+    <div class="rail__ttl">Правила Meta<br>для креативов</div>
+  </div>
+  <div class="rail__nav" id="railNav">
+    <a class="rail__link" href="#s0"><span class="rail__num">00</span><span>Как читать</span></a>
+    <a class="rail__link" href="#s1"><span class="rail__num">01</span><span>Форматы и размеры</span></a>
+    <a class="rail__link" href="#s2"><span class="rail__num">02</span><span>Safe zones</span></a>
+    <a class="rail__link" href="#s3"><span class="rail__num">03</span><span>Видео</span></a>
+    <a class="rail__link" href="#s4"><span class="rail__num">04</span><span>Текст</span></a>
+    <a class="rail__link" href="#s5"><span class="rail__num">05</span><span>Запреты</span></a>
+    <a class="rail__link" href="#s6"><span class="rail__num">06</span><span>Чек-лист сдачи</span></a>
+    <a class="rail__link" href="#s7"><span class="rail__num">07</span><span>Частые вопросы</span></a>
+  </div>
+  <div class="rail__foot">Данные на сентябрь 2026.<br>Спецификации меняются — сверяйтесь с Ads Manager.</div>
+</nav>
+
+<div class="chips" id="chips">
+  <a href="#s0">Как читать</a>
+  <a href="#s1">Форматы</a>
+  <a href="#s2">Safe zones</a>
+  <a href="#s3">Видео</a>
+  <a href="#s4">Текст</a>
+  <a href="#s5">Запреты</a>
+  <a href="#s6">Чек-лист</a>
+  <a href="#s7">Вопросы</a>
+</div>
+
+<main>
+
+<section class="s-ink hero" id="s0">
+  <div class="inner">
+    <div class="micro reveal">Справочник для дизайнера</div>
+    <h1 class="reveal">Правила Meta<br>для креативов</h1>
+    <p class="lead reveal">Всё, что нужно знать перед сборкой макета для таргетированной рекламы:
+    форматы, безопасные зоны, требования к видео, лимиты текста и запреты, из-за которых
+    объявления чаще всего отклоняют.</p>
+    <div class="pills reveal">
+      <span class="pill">7 разделов</span>
+      <span class="pill">Сентябрь 2026</span>
+      <span class="pill">Facebook · Instagram</span>
+    </div>
+  </div>
+</section>
+
+<section class="s-white" id="s1x">
+  <div class="inner">
+    <div class="micro reveal">Как читать</div>
+    <h2 class="reveal">Два типа требований</h2>
+    <p class="reveal">Различать их важно: последствия нарушения разные, и отвечают за них разные люди.</p>
+
+    <h3 class="reveal">Технические</h3>
+    <p class="reveal">Размеры, форматы файлов, хронометраж, безопасные зоны. Нарушение ломает картинку:
+    креатив обрежется или часть его закроет интерфейс площадки. Объявление при этом открутится —
+    деньги спишутся за показ, где сообщение не дошло. <strong>Зона ответственности дизайнера.</strong></p>
+
+    <h3 class="reveal">Политики</h3>
+    <p class="reveal">Что можно и нельзя показывать и говорить. Нарушение ведёт к отклонению объявления,
+    а при повторах — к ограничению рекламного кабинета. Проверка автоматическая, обычно в течение суток,
+    и смотрит она не только на креатив, но и на посадочную страницу.
+    <strong>Общая ответственность дизайнера и таргетолога.</strong></p>
+
+    <div class="note reveal">
+      <strong>Что изменилось в 2026 году.</strong>
+      <p style="margin:9px 0 0">В марте Meta объединила Stories и Reels обеих платформ в единую безопасную зону —
+      один вертикальный макет теперь работает везде. Квадрат 1:1 перестал быть форматом по умолчанию:
+      для ленты рекомендованы 4:5 в статике и 9:16 в видео. В январе закрылась отдельная лента Explore,
+      её трафик ушёл в Reels.</p>
+    </div>
+  </div>
+</section>
+
+<section class="s-blue" id="s1">
+  <div class="inner">
+    <div class="micro reveal">Раздел 01</div>
+    <h2 class="reveal">Форматы и размеры</h2>
+    <p class="reveal">Три размера закрывают подавляющее большинство плейсментов. Остальное — частные случаи.</p>
+
+    <table class="reveal">
+      <tr><th>Формат</th><th>Размер</th><th>Где работает</th></tr>
+      <tr><td>4:5</td><td>1080 × 1350</td><td>Лента Facebook и Instagram — основной для статики</td></tr>
+      <tr><td>9:16</td><td>1080 × 1920</td><td>Stories, Reels, все полноэкранные плейсменты</td></tr>
+      <tr><td>1:1</td><td>1080 × 1080</td><td>Универсальный запасной, обязателен для карусели</td></tr>
+    </table>
+
+    <h3 class="reveal">Требования к файлам</h3>
+    <table class="reveal">
+      <tr><th>Тип</th><th>Формат</th><th>Ограничения</th></tr>
+      <tr><td>Статика</td><td>JPG, PNG</td><td>Максимальное разрешение, sRGB</td></tr>
+      <tr><td>Видео</td><td>MP4, MOV · кодек H.264</td><td>1080p · до 1 ГБ (максимум 4 ГБ)</td></tr>
+    </table>
+
+    <div class="note note--warn reveal">
+      <strong>Не сжимать перед загрузкой.</strong>
+      <p style="margin:9px 0 0">Meta сжимает материал повторно. Двойное сжатие даёт артефакты —
+      особенно заметные на макро-планах металла и гравировки. Грузите чистый экспорт
+      в максимальном качестве и позвольте площадке сжать самой.</p>
+    </div>
+
+    <h3 class="reveal">Практический минимум</h3>
+    <p class="reveal">Если ресурсов на все форматы нет, собирайте два: <strong>1080×1350</strong> для ленты
+    и <strong>1080×1920</strong> для Stories и Reels. Квадрат добавляется, когда нужна карусель.</p>
+
+    <div class="note reveal">
+      <strong>Композиция собирается под каждое соотношение отдельно.</strong>
+      <p style="margin:9px 0 0">Нельзя обрезать вертикаль до 4:5 или растянуть квадрат.
+      При обрезке продукт уезжает за край, при растяжении теряется в пустоте.
+      Это разные кадры, а не один в разных рамках.</p>
+    </div>
+  </div>
+</section>
+
+<section class="s-white" id="s2">
+  <div class="inner">
+    <div class="micro reveal">Раздел 02</div>
+    <h2 class="reveal">Safe zones</h2>
+    <p class="reveal">Безопасная зона — область, которую не перекрывает интерфейс площадки:
+    аватар, ник, кнопка действия, подписи, иконки реакций. Всё, что окажется за её пределами,
+    будет частично или полностью закрыто.</p>
+
+    <div class="stat reveal">35%</div>
+    <div class="stat-lbl reveal">кадра снизу занимает интерфейс в вертикальных форматах</div>
+
+    <h3 class="reveal">Вертикаль 9:16 — единая зона</h3>
+    <p class="reveal">С марта 2026 одна спецификация на Facebook Stories, Facebook Reels,
+    Instagram Stories и Instagram Reels.</p>
+
+    <div class="zone reveal">
+      <div class="canvas">
+        <div class="canvas__bad" style="height:14%">
+          <span class="canvas__tag" style="top:6px">14% · 270 px</span>
+        </div>
+        <div class="canvas__safe" style="top:14%;bottom:35%;left:6%;right:6%">
+          Safe<br>950×980
+        </div>
+        <div class="canvas__bad canvas__bad--bot" style="height:35%">
+          <span class="canvas__tag" style="bottom:8px">35% · 672 px</span>
+        </div>
+      </div>
+      <div class="zone__info">
+        <table style="margin-top:0">
+          <tr><th>Граница</th><th>Доля</th><th>Пиксели</th></tr>
+          <tr><td>Сверху</td><td>14%</td><td>270 px</td></tr>
+          <tr><td>Снизу</td><td>35%</td><td>672 px</td></tr>
+          <tr><td>По бокам</td><td>6%</td><td>65 px</td></tr>
+        </table>
+        <p style="font-size:16px">Логотип, текст и ключевая деталь — внутри золотой рамки.
+        Сам продукт может выходить за границы, если это работает на композицию.</p>
+      </div>
+    </div>
+
+    <h3 class="reveal">Лента 4:5 и 1:1</h3>
+    <p class="reveal">Здесь интерфейс не лежит поверх креатива, но отступы всё равно нужны:
+    5% от каждого края, нижние 10% свободны — там начинается текст поста.</p>
+
+    <div class="zone reveal">
+      <div class="canvas canvas--feed">
+        <div class="canvas__safe" style="top:5%;bottom:10%;left:5%;right:5%">
+          Safe<br>972×1215
+        </div>
+      </div>
+      <div class="zone__info">
+        <table style="margin-top:0">
+          <tr><th>Формат</th><th>Холст</th><th>Безопасная область</th></tr>
+          <tr><td>4:5</td><td>1080 × 1350</td><td>972 × 1215 по центру</td></tr>
+          <tr><td>1:1</td><td>1080 × 1080</td><td>972 × 972 по центру</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <h3 class="reveal">Как проверить</h3>
+    <p class="reveal">В Ads Manager есть встроенный инструмент <strong>Safe Zone Guardrail</strong> —
+    накладывает сетку безопасных и опасных зон прямо на креатив при настройке объявления.</p>
+    <ol class="steps reveal">
+      <li>Включить Safe Zone Guardrail при настройке объявления</li>
+      <li>Пройти по каждому плейсменту в выпадающем списке превью</li>
+      <li>Убедиться, что ключевой контент не попадает под интерфейс ни в одном</li>
+    </ol>
+    <p class="reveal">Проверка занимает меньше двух минут на объявление и окупается первым же
+    непотраченным впустую показом.</p>
+
+    <div class="note note--warn reveal">
+      <strong>Частая ошибка.</strong>
+      <p style="margin:9px 0 0">Макет, собранный под ленту, ломается в Reels — и наоборот.
+      Разница только в нижней границе составляет порядка 290 пикселей. Если кампания идёт через
+      Advantage+ с автоматическим распределением, один и тот же файл покажут во всех плейсментах.
+      Поэтому вертикаль собирается сразу под единую safe zone.</p>
+    </div>
+  </div>
+</section>
+
+<section class="s-ink" id="s3">
+  <div class="inner">
+    <div class="micro reveal">Раздел 03</div>
+    <h2 class="reveal">Видео</h2>
+
+    <h3 class="reveal">Хронометраж</h3>
+    <table class="reveal">
+      <tr><th>Плейсмент</th><th>Минимум</th><th>Максимум</th></tr>
+      <tr><td>Лента</td><td>1 сек</td><td>240 минут</td></tr>
+      <tr><td>Stories</td><td>1 сек</td><td>120 секунд</td></tr>
+      <tr><td>Reels</td><td>1 сек</td><td>90 секунд</td></tr>
+    </table>
+    <p class="reveal">Рабочий диапазон — <strong>15–30 секунд</strong>. Для продуктовых роликов
+    и тестовых креативов обычно хватает 10–15.</p>
+
+    <h3 class="reveal">Первые секунды решают всё</h3>
+    <ul class="dash reveal">
+      <li>Продукт в кадре сразу или не позже второй секунды</li>
+      <li>Без длинных логотипных заставок в начале</li>
+      <li>Самый сильный кадр — первым, а не в финале</li>
+    </ul>
+
+    <h3 class="reveal">Звук и субтитры</h3>
+    <p class="reveal">Значительная часть аудитории смотрит без звука. Смысл ролика должен читаться
+    при выключенном звуке — если есть речь, нужны впечатанные субтитры, и они тоже внутри safe zone.</p>
+
+    <div class="note note--warn reveal">
+      <strong>Музыка — только с коммерческой лицензией.</strong>
+      <p style="margin:9px 0 0">Встроенная библиотека Instagram предназначена для органических публикаций
+      и для рекламы не годится: у неё другая лицензия. Безопасный путь — трек с лицензионного стока
+      или версия без музыки.</p>
+    </div>
+
+    <h3 class="reveal">Чего не должно быть в кадре</h3>
+    <ul class="dash reveal">
+      <li>Интерфейс Instagram и Facebook: кнопки, иконки, полосы прогресса</li>
+      <li>Элементы редактора Reels, стикеры и опросы из органики</li>
+      <li>Водяные знаки других площадок, особенно TikTok</li>
+      <li>Имитация интерфейса: нарисованные кнопки «воспроизвести», ложные поля, курсоры</li>
+    </ul>
+  </div>
+</section>
+
+<section class="s-white" id="s4">
+  <div class="inner">
+    <div class="micro reveal">Раздел 04</div>
+    <h2 class="reveal">Текст</h2>
+
+    <h3 class="reveal">Правило 20% отменено — но есть нюанс</h3>
+    <p class="reveal">Раньше Meta отклоняла макеты, где текст занимал больше 20% площади.
+    <strong>Этого ограничения больше нет</strong> — объявление не отклонят за перегруз текстом.</p>
+    <p class="reveal">Но алгоритм по-прежнему лучше распределяет чистые макеты. Много текста на картинке —
+    это не запрет, а худшая доставка и более дорогой показ. Для люкса это верно вдвойне:
+    один короткий смысл работает сильнее плотно забитого макета.</p>
+
+    <h3 class="reveal">Лимиты текстовых полей</h3>
+    <p class="reveal">Это тексты в интерфейсе объявления, не на макете.</p>
+    <table class="reveal">
+      <tr><th>Поле</th><th>Объём</th><th>Где обрезается</th></tr>
+      <tr><td>Основной текст</td><td>до 125 символов</td><td>Дальше скрывается под «Ещё»</td></tr>
+      <tr><td>Заголовок</td><td>до 40 символов</td><td>Обрезается на мобильных</td></tr>
+      <tr><td>Описание</td><td>до 30 символов</td><td>Показывается не во всех плейсментах</td></tr>
+    </table>
+
+    <h3 class="reveal">Правило разделения</h3>
+    <p class="reveal">Тексты объявления и призыв к действию <strong>не зашиваются полностью в визуал</strong>.
+    Причина практическая: текст в полях можно править и тестировать без пересборки макета.
+    Зашитый в картинку текст замораживает вариант и лишает возможности быстрого A/B.</p>
+    <p class="reveal">На макете допустимо: логотип и одна короткая строка-слоган. Остальное — в поля.</p>
+
+    <h3 class="reveal">Типографика на макете</h3>
+    <ul class="dash reveal">
+      <li>Кегль с расчётом на экран телефона, а не на монитор дизайнера</li>
+      <li>Контраст достаточный, чтобы текст читался на солнце</li>
+      <li>Текст не ложится на важные детали продукта</li>
+      <li>В вертикали — только внутри safe zone</li>
+    </ul>
+  </div>
+</section>
+
+<section class="s-blue" id="s5">
+  <div class="inner">
+    <div class="micro reveal">Раздел 05</div>
+    <h2 class="reveal">Запреты и политики</h2>
+    <p class="reveal">Проверка автоматическая, обычно до суток. Система оценивает весь опыт целиком:
+    креатив, тексты и посадочную страницу.</p>
+
+    <div class="note note--warn reveal" style="background:rgba(194,52,52,.12)">
+      <strong>Объявление могут отклонить из-за сайта</strong>, даже если сам креатив безупречен.
+    </div>
+
+    <h3 class="reveal">Запрещено всегда</h3>
+    <ul class="dash reveal">
+      <li>Нагота и откровенный контент, включая намёки и чрезмерную откровенность</li>
+      <li>Шокирующий, сенсационный и чрезмерно жестокий контент</li>
+      <li>Ненормативная лексика</li>
+      <li>Дискриминационный контент</li>
+      <li>Чужая интеллектуальная собственность без прав — товарные знаки, персонажи, музыка</li>
+      <li>Фирменные элементы самой Meta</li>
+      <li>Оружие, табак, наркотические вещества</li>
+    </ul>
+
+    <h3 class="reveal">Фейковая функциональность</h3>
+    <p class="reveal">Одна из самых частых причин отклонения именно у дизайнеров. Запрещены нарисованные
+    элементы, имитирующие рабочий интерфейс:</p>
+    <ul class="dash reveal">
+      <li>Кнопки «воспроизвести» на статичном изображении</li>
+      <li>Ложные поля ввода, чекбоксы, выпадающие списки</li>
+      <li>Нарисованные курсоры и стрелки, показывающие куда нажать</li>
+      <li>Поддельные уведомления и счётчики сообщений</li>
+    </ul>
+
+    <h3 class="reveal">Личные характеристики</h3>
+    <p class="reveal">Самая частая причина отклонения в 2026 году. Нельзя утверждать или
+    <strong>намекать</strong>, что рекламодатель знает о человеке: расу, национальность, религию,
+    возраст, пол, ориентацию, состояние здоровья, финансовое положение, семейный статус.</p>
+
+    <div class="yn reveal">
+      <div class="yn__card yn__ok">
+        <div class="yn__lbl">Так можно</div>
+        <p>«You've earned it»<br>«Made for the few»<br>«Different at first sight»</p>
+      </div>
+      <div class="yn__card yn__no">
+        <div class="yn__lbl">Так нельзя</div>
+        <p>«You deserve this at your age»<br>«For successful businessmen like you»</p>
+      </div>
+    </div>
+    <p class="reveal">Разница в том, о ком говорит фраза. Про вещь — можно. Про зрителя — нет.</p>
+
+    <h3 class="reveal">Вводящие в заблуждение заявления</h3>
+    <p class="reveal">Нельзя обещать негарантированное и преувеличивать результат. Для нас это прежде всего
+    цифры тиража и характеристики материалов: если на макете стоит «99 экземпляров» или
+    «24-каратное золото», это должно совпадать с сайтом.</p>
+
+    <h3 class="reveal">Контент, созданный ИИ</h3>
+    <p class="reveal">С 2026 года Meta требует помечать синтетический контент. Если креатив собран
+    с помощью генеративных инструментов — указывать это при загрузке.</p>
+  </div>
+</section>
+
+<section class="s-white" id="s6">
+  <div class="inner">
+    <div class="micro reveal">Раздел 06</div>
+    <h2 class="reveal">Чек-лист сдачи</h2>
+    <p class="reveal">Пройдите перед передачей макета таргетологу. Отметки сохраняются,
+    пока открыта страница.</p>
+
+    <div class="check reveal" id="check">
+      <div class="check__grp">Техника</div>
+      <label><input type="checkbox"><span>Размер соответствует плейсменту: 1080×1350 для ленты, 1080×1920 для вертикали</span></label>
+      <label><input type="checkbox"><span>Формат файла верный: JPG или PNG для статики, MP4 с кодеком H.264 для видео</span></label>
+      <label><input type="checkbox"><span>Видео не сжималось повторно перед загрузкой</span></label>
+      <label><input type="checkbox"><span>Размер файла до 1 ГБ</span></label>
+
+      <div class="check__grp">Композиция</div>
+      <label><input type="checkbox"><span>Всё важное внутри safe zone</span></label>
+      <label><input type="checkbox"><span>Проверено через Safe Zone Guardrail во всех плейсментах</span></label>
+      <label><input type="checkbox"><span>Композиция собрана под каждое соотношение, а не обрезана из одного</span></label>
+      <label><input type="checkbox"><span>Проверено на реальном телефоне</span></label>
+
+      <div class="check__grp">Содержание</div>
+      <label><input type="checkbox"><span>Нет имитации интерфейса — кнопок, полей, курсоров</span></label>
+      <label><input type="checkbox"><span>Нет интерфейса площадок и водяных знаков</span></label>
+      <label><input type="checkbox"><span>Нет обращения к личным характеристикам зрителя</span></label>
+      <label><input type="checkbox"><span>Цифры тиража и материалы сверены с сайтом</span></label>
+      <label><input type="checkbox"><span>Права на музыку, изображения людей и чужие знаки подтверждены</span></label>
+      <label><input type="checkbox"><span>Указано, если контент создан ИИ</span></label>
+
+      <div class="check__grp">Видео дополнительно</div>
+      <label><input type="checkbox"><span>Продукт в кадре в первые 1–2 секунды</span></label>
+      <label><input type="checkbox"><span>Смысл читается без звука</span></label>
+      <label><input type="checkbox"><span>Хронометраж в пределах плейсмента</span></label>
+
+      <div class="check__bar">
+        <b id="cnt">0 / 17</b>
+        <span style="font-size:15px;opacity:.7" id="msg">Отметьте выполненные пункты</span>
+        <button class="check__reset" id="reset">Сбросить</button>
+      </div>
+    </div>
+
+    <h3 class="reveal">Топ причин отклонения</h3>
+    <table class="reveal">
+      <tr><th>Причина</th><th>Что делать</th></tr>
+      <tr><td>Личные характеристики в тексте</td><td>Переформулировать с «вы» на описание продукта</td></tr>
+      <tr><td>Фейковая функциональность</td><td>Убрать нарисованные кнопки и поля</td></tr>
+      <tr><td>Вводящие в заблуждение заявления</td><td>Сверить факты с сайтом</td></tr>
+      <tr><td>Чужая интеллектуальная собственность</td><td>Подтвердить права или заменить</td></tr>
+      <tr><td>Посадочная страница</td><td>Проверить сайт, куда ведёт объявление</td></tr>
+    </table>
+
+    <h3 class="reveal">Если объявление отклонили</h3>
+    <ol class="steps reveal">
+      <li>Посмотреть причину в Ads Manager</li>
+      <li>Сравнить креатив с политикой, которую назвали</li>
+      <li>Исправить и отправить заново либо запросить проверку</li>
+      <li>Не подавать апелляцию много раз подряд — это ухудшает положение</li>
+    </ol>
+    <div class="note note--warn reveal">
+      <strong>Повторные нарушения снижают репутацию аккаунта</strong> и могут привести к ограничению
+      кабинета. Проверить макет до залива дешевле, чем разбираться после.
+    </div>
+  </div>
+</section>
+
+<section class="s-light" id="s7">
+  <div class="inner">
+    <div class="micro reveal">Раздел 07</div>
+    <h2 class="reveal">Частые вопросы</h2>
+
+    <details class="reveal"><summary>Можно ли использовать один макет для ленты и Stories?</summary>
+      <p>Нет. Соотношения разные — 4:5 против 9:16, и композиция строится по-разному.
+      Обрезка вертикали до ленты уводит продукт за край, растяжение квадрата до вертикали
+      оставляет его теряться в пустоте. Это два разных кадра.</p></details>
+
+    <details class="reveal"><summary>Правда ли, что текст на макете больше не ограничен?</summary>
+      <p>Формально да: правило 20% отменено, за перегруз текстом объявление не отклонят.
+      Но алгоритм лучше распределяет чистые макеты, так что много текста означает худшую
+      доставку и более дорогой показ.</p></details>
+
+    <details class="reveal"><summary>Почему нельзя брать музыку из библиотеки Instagram?</summary>
+      <p>У неё лицензия на органические публикации, а не на рекламу. Для платного размещения
+      нужен трек с правами на коммерческое использование либо версия без музыки.</p></details>
+
+    <details class="reveal"><summary>Что именно считается имитацией интерфейса?</summary>
+      <p>Любой нарисованный элемент, который выглядит рабочим, но не работает: кнопка
+      «воспроизвести» на статике, поле ввода, чекбокс, курсор или стрелка «нажми сюда»,
+      поддельное уведомление со счётчиком.</p></details>
+
+    <details class="reveal"><summary>Объявление отклонили, хотя креатив соответствует правилам. Почему?</summary>
+      <p>Проверка оценивает весь опыт: креатив, тексты объявления и посадочную страницу.
+      Нарушение на сайте приведёт к отклонению даже при безупречном макете.</p></details>
+
+    <details class="reveal"><summary>Нужно ли помечать ИИ-генерации?</summary>
+      <p>Да. С 2026 года Meta требует раскрывать синтетический контент. Если визуал собран
+      генеративными инструментами, это указывается при загрузке.</p></details>
+
+    <details class="reveal"><summary>Сколько вариантов креатива готовить на кампанию?</summary>
+      <p>Алгоритм распределения работает тем лучше, чем больше материала для теста.
+      Практика — от 10 вариантов на кампанию, включая разные связки визуала и текста.
+      Одна связка почти никогда не выигрывает сразу.</p></details>
+
+    <p class="src reveal">Источники: Meta Advertising Standards, Meta Ads Guide, спецификации
+    плейсментов на сентябрь 2026. Требования площадки меняются — перед крупной кампанией
+    сверяйтесь с актуальной версией в Ads Manager.</p>
+  </div>
+</section>
+
+</main>
+
+<button class="up" id="up" aria-label="Наверх">↑</button>
+
+<noscript><style>.reveal{opacity:1;transform:none}</style></noscript>
+
+<script>
+document.documentElement.classList.add('js');
+
+// reveal
+const io = new IntersectionObserver((es)=>{
+  es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+},{threshold:.15});
+document.querySelectorAll('.reveal').forEach((el,i)=>{
+  el.style.transitionDelay = (i%6)*0.05+'s';
+  io.observe(el);
+});
+
+// progress
+const prog = document.getElementById('progress');
+function onScroll(){
+  const h = document.documentElement.scrollHeight - innerHeight;
+  prog.style.width = (h>0 ? (scrollY/h)*100 : 0)+'%';
+  document.getElementById('up').classList.toggle('show', scrollY>600);
+}
+addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+// scrollspy
+const secs = [...document.querySelectorAll('section[id]')];
+const links = [...document.querySelectorAll('.rail__link, .chips a')];
+const spy = new IntersectionObserver((es)=>{
+  es.forEach(e=>{
+    if(e.isIntersecting){
+      const id = e.target.id;
+      links.forEach(l=> l.classList.toggle('active', l.getAttribute('href')==='#'+id));
+    }
+  });
+},{rootMargin:'-45% 0px -50% 0px'});
+secs.forEach(s=>spy.observe(s));
+
+document.getElementById('up').addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));
+
+// checklist
+const boxes = [...document.querySelectorAll('#check input')];
+const cnt = document.getElementById('cnt'), msg = document.getElementById('msg');
+function upd(){
+  const n = boxes.filter(b=>b.checked).length;
+  cnt.textContent = n+' / '+boxes.length;
+  msg.textContent = n===0 ? 'Отметьте выполненные пункты'
+    : n===boxes.length ? 'Макет готов к передаче' : 'Осталось '+(boxes.length-n);
+}
+boxes.forEach(b=>b.addEventListener('change',upd));
+document.getElementById('reset').addEventListener('click',()=>{
+  boxes.forEach(b=>b.checked=false); upd();
+});
+upd();
+</script>
+</body>
+</html>
